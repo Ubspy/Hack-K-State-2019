@@ -21,6 +21,7 @@ start:
       - 'yes'
     no_plan:
       - 'no'
+      - "don't"
 
 plan:
   message: "When were you planning to commit suicide?"
