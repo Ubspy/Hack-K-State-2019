@@ -14,11 +14,9 @@ PROMPTS=["Hello! Thank you for contacting the suicide hotline. First off, you've
         "Okay. Thank you for responses, they will allow us to give you more personalized care. We are about to connect you with a volunteer. It'll be about 3 more minutes."]
 
 responses = []
-currentReponse = 0
 
 def getResponse(userMessage):
-    currentReponse += 1
-    return PROMPTS[currentReponse - 1]
+    return PROMPTS[userMessage - 1]
 
 '''
 for x in range(len(PROMPTS) - 1):
