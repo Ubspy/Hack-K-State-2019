@@ -1,4 +1,3 @@
-
 # python
 __pycache__
 env/
@@ -8,3 +7,6 @@ venv/
 \#*\#
 *\#
 *~
+
+# vscode
+.vscode/
