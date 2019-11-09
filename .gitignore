@@ -1,3 +1,9 @@
+# python
 __pycache__
 env/
 venv/
+
+# emacs
+\#*\#
+*\#
+*~
