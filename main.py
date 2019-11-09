@@ -1,3 +1,4 @@
+import prompt
 PROMPTS=["Hello! Thank you for contacting the suicide hotline. First off, you've made the right decision.\nWhile waiting for a volunteer to become available, could you answer some important questions for us?", 
         "Do you have a plan to attempt suicide?", 
         "When were you planning to kill yourself?", 
@@ -14,8 +15,15 @@ PROMPTS=["Hello! Thank you for contacting the suicide hotline. First off, you've
         "Okay. Thank you for responses, they will allow us to give you more personalized care. We are about to connect you with a volunteer. It'll be about 3 more minutes."]
 
 responses = []
-
-for x in range(len(PROMPTS) - 1):
-    user_in = input(PROMPTS[x] + '\n')
-    responses.append(user_in)
-print(PROMPTS[-1])
+# Initial value for our linked list
+p = prompt.LIST[0]
+while (p.next_prompt != -1):
+    user_in = input(p.message + '\n')
+    while (user_in not in p.acceptable_responses):
+        print("Invalid response")
+        s = p.message + "("
+        for r in p.acceptable_responses:
+            s += (r + '/') 
+        s += ")\n"
+        user_in = input(s)
+    p = prompt.LIST[p.next_prompt] # p = next value in our linked list
