@@ -1,0 +1,127 @@
+# Syntax:
+# <name>: -- This is the name of the message (use start for first message)
+#   message: <message> -- This is what the message is
+#   next_prompt:
+#     <other_name_1>: -- This is the name of the next message to send if
+#                        user input contains one of the keywords (use 0 if
+#                        this is the last message)
+#       - <keyword1>
+#       - <keyword2>
+#       - <keyword3>
+#
+#     <other_name_2>:
+#       - <keyword4>
+#       - <keyword5>
+#       - <keyword6>
+
+start:
+  message: "Do you have a plan to attempt suicide?"
+  next_prompt:
+    plan:
+      - 'yes'
+    no_plan:
+      - 'no'
+
+plan:
+  message: "When were you planning to commit suicide?"
+  next_prompt:
+    plan_when:
+      - 'today'
+      - 'tomorrow'
+      - 'soon'
+    no_plan_when:
+      - "don't"
+
+plan_when:
+  message: "Where would you do it?"
+  next_prompt:
+    plan_where:
+      - "here"
+      - "house"
+      - "at"
+    no_plan_where:
+      - "don't"
+
+plan_where:
+  message: "How would you do it?"
+  next_prompt:
+    plan_how:
+      - "knife"
+      - "blade"
+      - "gun"
+      - "pistol"
+      - "pills"
+      - "drugs"
+      - "shoot"
+      - "hang"
+      - "rope"
+      - "jump"
+      - "fall"
+      - "building"
+      - "drown"
+    no_plan_how:
+      - "don't"
+
+plan_how:
+  message: "Ok. Thank you for giving us this important information. We'll have a volunteer with you in a few minutes."
+  next_prompt:
+    0: ''
+
+no_plan_how:
+  message: "Ok. Thank you for giving us this important information. We'll have a volunteer with you in a few minutes."
+  next_prompt:
+    0: ''
+
+no_plan_where:
+  message: "How would you do it?"
+  next_prompt:
+    plan_how:
+      - "knife"
+      - "blade"
+      - "gun"
+      - "pistol"
+      - "pills"
+      - "drugs"
+      - "shoot"
+      - "hang"
+      - "rope"
+      - "jump"
+      - "fall"
+      - "building"
+      - "drown"
+    no_plan_how:
+      - "don't"
+
+no_plan_when:
+  message: "Where would you do it?"
+  next_prompt:
+    plan_where:
+      - "here"
+      - "house"
+      - "at"
+    no_plan_where:
+      - "don't"
+
+no_plan:
+  message: "Ok. Can you wait a few minutes for a volunteer to be available?"
+  next_prompt:
+    can_wait:
+      - 'yes'
+      - 'yeah'
+      - 'sure'
+    cannot_wait:
+      - "no"
+      - "can't"
+      - "cannot"
+      - "don't"
+      - "maybe"
+
+can_wait:
+  message: "Ok. We'll have a volunteer with you in a few minutes."
+  next_prompt:
+    0: ''
+
+cannot_wait:
+  message: "Ok, we'll get you with a volunteer ASAP."
+  next_prompt:
+    0: ''
