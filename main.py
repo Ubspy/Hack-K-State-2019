@@ -2,13 +2,15 @@ import prompt
 
 # Initial value for our linked list
 p = prompt.prompt_list('start')
-while (p.next_prompt != 0):
-    user_in = input(p.message + '\n')
-    while (user_in not in p.acceptable_responses):
-        print("Invalid response")
-        s = p.message + "("
-        for r in p.acceptable_responses:
-            s += (r + '/') 
-        s += ")\n"
-        user_in = input(s)
-    p = prompt.prompt_list(p.next_prompt) # p = next value in our linked list
+while (0 not in p.next_prompt.keys()):
+    user_in = input(p.message + '\n').lower()
+    words = user_in.split(" ")
+    choice = None
+    for word in words:
+        choice = p.next(word)
+        if choice is not None:
+            break
+    if choice is None:
+        print("Sorry, I didn't understand that.", end=" ")
+    else:
+        p = prompt.prompt_list(choice) # p = next value based on user input
