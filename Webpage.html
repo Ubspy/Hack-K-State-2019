@@ -22,23 +22,41 @@
 
     <!--Outer 1-->
     <div class="grid-container fluid">
-        <div class="grid-x margin-x">
-            <div class="cell auto">
-                    <img src="https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwiNk_THzNzlAhUEC6wKHYLuBEkQjRx6BAgBEAQ&url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FFile%3ACircle-icons-profile.svg&psig=AOvVaw1xFWtFdVCbotKMim3PqG4H&ust=1573370648972610"
-                        alt="Icon">
-                </div>
-            <div class="cell auto">
-                <h4>Hello There! How Are You?</h4>
+        <br>
+         <div class="grid-x margin-x margin-y">
+             <div class="media-object">
+                 <div class="media-object-section">
+                     <div class="thumbnail">
+                     <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Circle-icons-profile.svg"
+                     height="50"
+                     width="50">
+                     </div>
+                 </div>    
+             </div>
+             <div class="media-object-section">
+                 <p class="lead"height="500">Hello there, how are you?</p>
+             </div>
+         </div>
+     </div>
+
+     <div class="grid-container">
+            <div class="grid-y" style="height: 650px;">
+
             </div>
-            <div class="cell medium-4"> </div>  
         </div>
-    </div>
 
     <!--Outer 2-->
-    <div class="grid-container fluid">
-        <div class="grid-x margin-x">
-        <textarea maxlength="28" placeholder="Ask the bot anything!" id="textBox"></textarea>
-        
+    <div class="grid-container">
+        <div class="grid-x grid-margin-x">
+            <div class="cell auto">
+                <div class="input-group">
+                        <textarea placeholder="type here"></textarea>
+                        <div class="input-group-button">
+                            <input type="button" class="button secondary" value="Enter">
+                        </div>
+                    </div>   
+            </div>
+        </div>
     </div>
 
     <script src="js/vendor/jquery.js"></script>
