@@ -4,7 +4,7 @@
     
     <link rel="stylesheet" href="/static/css/foundation.css">
     <link rel="stylesheet" href="/static/css/app.css">
-    <link rel="stylesheet" href="/static/css/styles.css">
+    <link rel="stylesheet" href="/static/css/help.css">
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,22 +26,13 @@
 
     <!--Outer 1-->
     <div class="grid-container fluid" style="overflow-x: auto; height: 75vh;">
-         <div class="grid-x margin-x margin-y">
-               <div class="cell medium-1 large-2"> </div> 
-               <div class="cell medium-4">
-                 <div class="bottext" class="media-object-section">
-                    <p class="lead"height="500"> Hello there, how are you?</p>
-                 </div>
-                </div>
-            <div class="cell medium-11 large-10"> </div> 
-            <br>
-            <div class="cell medium-6 large-7"> </div> 
+         <div id="chatbox" class="grid-x margin-x margin-y">
+            <div class="cell medium-1 large-2"> </div> 
             <div class="cell medium-4">
-                <div class="usertext" class="text-box">
-                    <p class="lead"height="500"> Not too great, to be honest. Life has been sucking for me lately.</p>
-                </div>
+                <div class="bottext" class="media-object-section">
+                <p class="lead"height="500"> Hello there, how are you?</p>
             </div>
-         </div>
+        </div>
     </div>
 
 
@@ -51,9 +42,9 @@
             <div class="cell medium-1 large-2"></div>
                 <div class="cell medium-10 large-8">
                     <div class="input-group">
-                        <textarea placeholder="type here"></textarea>
+                        <textarea id="input-message" placeholder="type here"></textarea>
                         <div class="input-group-button" style="height: 50px; margin-left: 1rem;">
-                            <input type="button" class="button secondary" value="Enter">
+                            <input id="button" type="button" class="button secondary" value="Enter">
                         </div>
                     </div>  
                 </div>
@@ -70,17 +61,24 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script type="text/javascript">
     $(document).ready(function() {
-        var numberHeader= document.getElementById('number');
+        var messageCount = 0;
+
+        var messageDiv = document.getElementById('chatbox');
+        var userMessage = document.getElementById('input-message');
+
         $('#button').click(function() {
-            var currentNum = numberHeader.innerHTML;
+            var input = userMessage.value;
+
+            messageDiv.innerHTML += "<br><div class=\"cell medium-6 large-7\"> </div> <div class=\"cell medium-4\"><div class=\"usertext\" class=\"text-box\"><p class=\"lead\" height=\"500\">" + input + "</p></div></div></div>";
             
             $.ajax({
-                url: '/request',
+                url: '/message',
                 type: 'POST',
-                data: {number: currentNum},
+                data: {message: messageCount},
                 success: function(data)
                 {
-                    numberHeader.innerHTML = data;
+                    messageCount++;
+                    messageDiv.innerHTML += "<div class=\"cell medium-1 large-2\"> </div><div class=\"cell medium-4\"><div class=\"bottext\" class=\"media-object-section\"><p class=\"lead\" height=\"500\">" + data + "</p></div>"
                 }
             });
         });
