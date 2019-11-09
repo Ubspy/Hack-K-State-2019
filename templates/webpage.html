@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
     
-    <link rel="stylesheet" href="css/foundation.css">
-    <link rel="stylesheet" href="css/app.css">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="/static/css/foundation.css">
+    <link rel="stylesheet" href="/static/css/app.css">
+    <link rel="stylesheet" href="/static/css/styles.css">
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -67,7 +67,25 @@
     <script src="/static/js/vendor/foundation.js"></script>
     <script src="/static/js/app.js"></script>
 
-    
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        var numberHeader= document.getElementById('number');
+        $('#button').click(function() {
+            var currentNum = numberHeader.innerHTML;
+            
+            $.ajax({
+                url: '/request',
+                type: 'POST',
+                data: {number: currentNum},
+                success: function(data)
+                {
+                    numberHeader.innerHTML = data;
+                }
+            });
+        });
+    });
+    </script>
 </body>
 </html>
 
