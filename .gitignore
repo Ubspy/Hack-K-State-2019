@@ -1,6 +1,10 @@
-<<<<<<< HEAD
-=======
+
+# python
 __pycache__
->>>>>>> initial-assessment
 env/
 venv/
+
+# emacs
+\#*\#
+*\#
+*~
