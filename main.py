@@ -14,3 +14,5 @@ while (0 not in p.next_prompt.keys()):
         print("Sorry, I didn't understand that.", end=" ")
     else:
         p = prompt.prompt_list(choice) # p = next value based on user input
+
+print(p.message + '\n')
