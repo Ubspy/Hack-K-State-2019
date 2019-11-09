@@ -1,0 +1,31 @@
+start:
+  message: Hello! Thank you for contacting the suicide hotline. First off, you’ve made the right decision.
+    While waiting for a volunteer to become available, could you answer some important questions for us?
+  acceptable_responses:
+    - 'yes'
+    - 'no'
+    - sure
+    - ok
+  next_prompt: plan
+
+plan:
+  message: Do you have a plan to attempt suicide?
+  acceptable_responses:
+    - 'yes'
+    - 'no'
+    - i don't know
+  next_prompt: when
+
+when:
+  message: When were you planning to kill yourself?
+  acceptable_responses:
+    - today
+    - tomorrow
+    - i don't know
+  next_prompt: where_action
+
+where_action:
+  message: Where would you do it?
+  acceptable_responses:
+    - i don't know
+  next_prompt: 0
