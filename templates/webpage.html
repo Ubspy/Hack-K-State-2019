@@ -14,11 +14,17 @@
 
 <body>
     <!--the Header Title-->
-    <div class="top-bar" style="background-color: #008080;">
-        <div class = "borderbox">
+    <div class="grid-container fluid" style="background-color: #008080;">
+        <div class="grid-x margin-x margin-y">
+        <div class="cell medium-12 large-12"> </div>
+        <br>
+        <div class="cell medium-12 large-12"> </div>
+         <div class = "borderbox">
             <div class = "text-center" style="width: 100vw"> 
-                <h3  style="color: #d3d3d3; font-family: quantify">Caring Chat Bot</h3>
-            </div>
+                 <img src="/static/logoPyper.jpg" alt="Hugs" width="50" height="50">
+                <h3  style="color: #ffffff; font-family: quantify">Suicide Chat Line</h3>
+           </div>
+         </div>
         </div>
     </div>
 
@@ -26,20 +32,32 @@
 
     <!--Outer 1-->
     <div class="grid-container fluid" style="overflow-x: auto; height: 75vh;">
-         <div id="chatbox" class="grid-x margin-x margin-y">
+         <div class="grid-x margin-x margin-y" id="chatbox">
             <div class="cell medium-1 large-2"> </div> 
             <div class="cell medium-4">
                 <div class="bottext" class="media-object-section">
-                <p class="lead"height="500">Thank you for reaching out! I'm really sorry, there's a hold on the phone line right now, but I'm here to keep you company until someone can talk to you! <br> So what's been going on? Why are you here today?</p>
-            </div>
+                    <p class="lead chatbubble">Thank you for reaching out! I'm really sorry, there's a hold on the phone line right now, but I'm here to keep you company until someone can talk to you! <br> So what's been going on? Why are you here today?</p>
+                </div>
+                </div>
+            <div class="cell medium-11 large-10"> </div> 
+            <!--<br>
+            <div class="cell medium-11 large-10"> </div> 
+            <br>
+            <div class="cell medium-1 large-2"> </div> 
+            <div class="cell medium-1 large-2"> </div> 
+            <div class="cell medium-3 large-2">
+                <div class="pending" class="media-object-section">
+                <p class="lead" font-size="large-10"> . . . . . . </p>
+                </div>
+            </div> -->
         </div>
     </div>
 
 
-    <!--Outer 2-->
+    <!-- Bottom Bar -->
     <div class="grid-container fluid" id="footer">
         <div class="grid-x grid-margin-x">
-            <div class="cell medium-1 large-2"></div>
+            <div class="cell medium-4 large-2"></div>
                 <div class="cell medium-10 large-8">
                     <div class="input-group">
                         <textarea id="input-message" placeholder="type here"></textarea>
@@ -76,7 +94,7 @@
         $('#button').click(function() {
             var input = $('#input-message').val();
             $('#input-message').val('');
-            messageDiv.innerHTML += "<br><div class=\"cell medium-6 large-7\"> </div> <div class=\"cell medium-4\"><div class=\"usertext\" class=\"text-box\"><p class=\"lead\" height=\"500\">" + input + "</p></div></div></div>";
+            messageDiv.innerHTML += '<br><div class="cell medium-6"> </div><div class="cell medium-4"><div class="usertext" class="text-box"><p class="lead chatbubble">' + input + '</p></div></div><div class="cell medium-12"></div>';
             
             $.ajax({
                 url: '/message',
@@ -86,11 +104,11 @@
                 {
                     if(data.constructor == Object)
                     {
-                        messageDiv.innerHTML += "<br><div class=\"cell medium-1 large-2\"> </div><div class=\"cell medium-4\"><div class=\"bottext\" class=\"media-object-section\"><p class=\"lead\" height=\"500\">" + data['generatedMessage'] + "<br><br>" + data['nextMessage'] + "</p></div>";
+                        messageDiv.innerHTML += '<br><div class="cell medium-1 large-2"></div><div class="cell medium-4"><div class="bottext" class="media-object-section"><p class="lead chatbubble">' + data['generatedMessage'] + '<br><br>' + data['nextMessage'] + '</p></div></div><div class="cell medium-12"></div>';
                     }
                     else
                     {
-                        messageDiv.innerHTML += "<br><div class=\"cell medium-1 large-2\"> </div><div class=\"cell medium-4\"><div class=\"bottext\" class=\"media-object-section\"><p class=\"lead\" height=\"500\">" + data + "</p></div>";
+                        messageDiv.innerHTML += '<br><div class="cell medium-1 large-2"></div><div class="cell medium-4"><div class="bottext" class="media-object-section"><p class="lead chatbubble">' + data + '</p></div></div><div class="cell medium-12"></div>';
                     }
                 }
             });
