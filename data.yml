@@ -20,6 +20,7 @@ start:
     thoughts:
       - ' '
   generated: True
+  add_to_score: 0
 
 thoughts:
   message: "Do you have a plan to attempt suicide?"
@@ -29,7 +30,9 @@ thoughts:
     no_plan:
       - 'no'
       - "don't"
+      - "haven't"
   generated: False
+  add_to_score: 0
 
 plan:
   message: "When were you planning to commit suicide?"
@@ -38,9 +41,12 @@ plan:
       - 'today'
       - 'tomorrow'
       - 'soon'
+      - 'week'
+      - 'weeks'
     no_plan_when:
       - "don't"
   generated: False
+  add_to_score: 1
 
 plan_when:
   message: "Where would you do it?"
@@ -52,6 +58,7 @@ plan_when:
     no_plan_where:
       - "don't"
   generated: False
+  add_to_score: 1
 
 plan_where:
   message: "How would you do it?"
@@ -73,18 +80,21 @@ plan_where:
     no_plan_how:
       - "don't"
   generated: False
+  add_to_score: 1
 
 plan_how:
   message: "Ok. Thank you for giving us this important information. We'll have a volunteer with you in a few minutes."
   next_prompt:
     0: ''
   generated: False
+  add_to_score: 1
 
 no_plan_how:
   message: "Ok. Thank you for giving us this important information. We'll have a volunteer with you in a few minutes."
   next_prompt:
     0: ''
   generated: False
+  add_to_score: 0
 
 no_plan_where:
   message: "How would you do it?"
@@ -106,6 +116,7 @@ no_plan_where:
     no_plan_how:
       - "don't"
   generated: False
+  add_to_score: 0
 
 no_plan_when:
   message: "Where would you do it?"
@@ -117,6 +128,7 @@ no_plan_when:
     no_plan_where:
       - "don't"
   generated: False
+  add_to_score: 0
 
 no_plan:
   message: "Ok. Can you wait a few minutes for a volunteer to be available?"
@@ -132,15 +144,18 @@ no_plan:
       - "don't"
       - "maybe"
   generated: False
+  add_to_score: 0
 
 can_wait:
   message: "Ok. We'll have a volunteer with you in a few minutes."
   next_prompt:
     0: ''
   generated: False
+  add_to_score: 0
 
 cannot_wait:
   message: "Ok, we'll get you with a volunteer ASAP."
   next_prompt:
     0: ''
   generated: False
+  add_to_score: 1
