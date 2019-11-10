@@ -62,25 +62,34 @@
     <script type="text/javascript">
     $(document).ready(function() {
         var messageCount = 0;
-
         var messageDiv = document.getElementById('chatbox');
-        var userMessage = document.getElementById('input-message');
+
+        var input = document.getElementById('input-message');
+        input.addEventListener("keyup", function(event){
+            if(event.keyCode == 13)
+            {
+                event.preventDefault();
+                document.getElementById('button').click();
+            }
+        });
 
         $('#button').click(function() {
-            var input = userMessage.value;
-
+            var input = $('#input-message').val();
+            console.log(input);
             messageDiv.innerHTML += "<br><div class=\"cell medium-6 large-7\"> </div> <div class=\"cell medium-4\"><div class=\"usertext\" class=\"text-box\"><p class=\"lead\" height=\"500\">" + input + "</p></div></div></div>";
             
             $.ajax({
                 url: '/message',
                 type: 'POST',
-                data: {message: messageCount},
+                data: {message: input},
                 success: function(data)
                 {
-                    messageCount++;
+                    $('#input-message').val('');
                     messageDiv.innerHTML += "<div class=\"cell medium-1 large-2\"> </div><div class=\"cell medium-4\"><div class=\"bottext\" class=\"media-object-section\"><p class=\"lead\" height=\"500\">" + data + "</p></div>"
                 }
             });
+
+            input = "";
         });
     });
     </script>
