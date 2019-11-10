@@ -10,11 +10,13 @@ class Prompt:
         self.next_prompt = next_prompt # a dict that looks like {'kill': ['yes', 'i think so']}
         self.generated = generated # Whether or not the response needs to be generated using the NLP black magic
 
-    def next(self, contains): # a function that takes a word and returns the next prompt based on that
+    def next_name(self, contains): # a function that takes a word and returns the NAME of the next prompt based on that
         for promptname, keywords in self.next_prompt.items():
-            if keywords == ' ':
-                return promptname
-            elif contains in keywords:
+            print(promptname + ":")
+            print(repr(keywords[0]))
+            print(repr(contains))
+            if contains in keywords:
+                print(promptname)
                 return promptname
 
 def load(filename):
@@ -23,7 +25,7 @@ def load(filename):
     for key, value in d.items():
         objdict[key] = Prompt(value['message'], value['next_prompt'], value['generated'])
 
-def prompt_list(key):
+def get_obj(key): # we have a dictionary of prompts; return a prompt given a key
     if not objdict:
         load('data.yml')
     return (objdict[key])
