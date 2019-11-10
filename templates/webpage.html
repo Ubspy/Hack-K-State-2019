@@ -30,7 +30,7 @@
             <div class="cell medium-1 large-2"> </div> 
             <div class="cell medium-4">
                 <div class="bottext" class="media-object-section">
-                <p class="lead"height="500"> Do you have a plan to attempt suicide?</p>
+                <p class="lead"height="500">Thank you for reaching out! I'm really sorry, there's a hold on the phone line right now, but I'm here to keep you company until someone can talk to you! <br> So what's been going on? Why are you here today?</p>
             </div>
         </div>
     </div>
@@ -75,7 +75,7 @@
 
         $('#button').click(function() {
             var input = $('#input-message').val();
-            console.log(input);
+            $('#input-message').val('');
             messageDiv.innerHTML += "<br><div class=\"cell medium-6 large-7\"> </div> <div class=\"cell medium-4\"><div class=\"usertext\" class=\"text-box\"><p class=\"lead\" height=\"500\">" + input + "</p></div></div></div>";
             
             $.ajax({
@@ -84,8 +84,14 @@
                 data: {message: input},
                 success: function(data)
                 {
-                    $('#input-message').val('');
-                    messageDiv.innerHTML += "<div class=\"cell medium-1 large-2\"> </div><div class=\"cell medium-4\"><div class=\"bottext\" class=\"media-object-section\"><p class=\"lead\" height=\"500\">" + data + "</p></div>"
+                    if(data.constructor == Object)
+                    {
+                        messageDiv.innerHTML += "<br><div class=\"cell medium-1 large-2\"> </div><div class=\"cell medium-4\"><div class=\"bottext\" class=\"media-object-section\"><p class=\"lead\" height=\"500\">" + data['generatedMessage'] + "<br><br>" + data['nextMessage'] + "</p></div>";
+                    }
+                    else
+                    {
+                        messageDiv.innerHTML += "<br><div class=\"cell medium-1 large-2\"> </div><div class=\"cell medium-4\"><div class=\"bottext\" class=\"media-object-section\"><p class=\"lead\" height=\"500\">" + data + "</p></div>";
+                    }
                 }
             });
 
