@@ -114,7 +114,7 @@
                             setTimeout(function()
                             {
                                 messageDiv.innerHTML = messageDiv.innerHTML.replace('fadeIn', '');
-                                messageDiv.innerHTML += '<br><div class="cell large-2"></div><div class="cell medium-6"><div class="bottext fadeIn" class="media-object-section"><p class="lead chatbubble">' + data + '</p></div></div><div class="cell medium-12"></div>';
+                                messageDiv.innerHTML += '<br><div class="cell large-2"></div><div class="cell medium-6 large-4"><div class="bottext fadeIn" class="media-object-section"><p class="lead chatbubble">' + data + '</p></div></div><div class="cell medium-12"></div>';
                                 $("#chatbox-scroll").scrollTop($("#chatbox-scroll")[0].scrollHeight);
                             }, timeDelay);
                         }
