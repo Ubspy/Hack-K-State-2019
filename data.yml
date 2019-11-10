@@ -15,6 +15,13 @@
 #       - <keyword6>
 
 start:
+  message: "Thank you for reaching out! I'm really sorry, there's a hold on the phone line right now, but I'm here to keep you company until someone can talk to you! So what's been going on? Why are you here today?"
+  next_prompt:
+    thoughts:
+      - ' '
+  generated: True
+
+thoughts:
   message: "Do you have a plan to attempt suicide?"
   next_prompt:
     plan:
@@ -22,6 +29,7 @@ start:
     no_plan:
       - 'no'
       - "don't"
+  generated: False
 
 plan:
   message: "When were you planning to commit suicide?"
@@ -32,6 +40,7 @@ plan:
       - 'soon'
     no_plan_when:
       - "don't"
+  generated: False
 
 plan_when:
   message: "Where would you do it?"
@@ -42,6 +51,7 @@ plan_when:
       - "at"
     no_plan_where:
       - "don't"
+  generated: False
 
 plan_where:
   message: "How would you do it?"
@@ -62,16 +72,19 @@ plan_where:
       - "drown"
     no_plan_how:
       - "don't"
+  generated: False
 
 plan_how:
   message: "Ok. Thank you for giving us this important information. We'll have a volunteer with you in a few minutes."
   next_prompt:
     0: ''
+  generated: False
 
 no_plan_how:
   message: "Ok. Thank you for giving us this important information. We'll have a volunteer with you in a few minutes."
   next_prompt:
     0: ''
+  generated: False
 
 no_plan_where:
   message: "How would you do it?"
@@ -92,6 +105,7 @@ no_plan_where:
       - "drown"
     no_plan_how:
       - "don't"
+  generated: False
 
 no_plan_when:
   message: "Where would you do it?"
@@ -102,6 +116,7 @@ no_plan_when:
       - "at"
     no_plan_where:
       - "don't"
+  generated: False
 
 no_plan:
   message: "Ok. Can you wait a few minutes for a volunteer to be available?"
@@ -116,13 +131,16 @@ no_plan:
       - "cannot"
       - "don't"
       - "maybe"
+  generated: False
 
 can_wait:
   message: "Ok. We'll have a volunteer with you in a few minutes."
   next_prompt:
     0: ''
+  generated: False
 
 cannot_wait:
   message: "Ok, we'll get you with a volunteer ASAP."
   next_prompt:
     0: ''
+  generated: False

@@ -1,5 +1,6 @@
 from flask import Flask, session, render_template, request
 import prompt
+import nlp
 
 app = Flask(__name__)
 app.secret_key = b'\xf0E\x18\x0bx0\xb9y\xc6\xc9\xdaA\x8e/\xabH' # super secret
@@ -36,3 +37,4 @@ def getResponse(user_message):
 
 if __name__ == "__main__":
     app.run()
+
