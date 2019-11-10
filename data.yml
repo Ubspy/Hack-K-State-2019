@@ -27,10 +27,13 @@ thoughts:
   next_prompt:
     plan:
       - 'yes'
+      - 'yeah'
+      - 'yea'
     no_plan:
       - 'no'
       - "don't"
       - "haven't"
+      - 'not'
   generated: False
   add_to_score: 0
 
@@ -39,12 +42,27 @@ plan:
   next_prompt:
     plan_when:
       - 'today'
+      - 'tonight'
+      - 'night'
+      - 'afternoon'
+      - 'morning'
+      - 'evening'
+      - 'hour'
+      - 'hours'
+      - 'minute'
+      - 'minutes'
+      - 'moment'
+      - 'moments'
       - 'tomorrow'
       - 'soon'
       - 'week'
       - 'weeks'
+      - 'month'
+      - 'year'
     no_plan_when:
       - "don't"
+      - 'later'
+      - "haven't"
   generated: False
   add_to_score: 1
 
@@ -55,8 +73,13 @@ plan_when:
       - "here"
       - "house"
       - "at"
+      - 'bedroom'
+      - 'bathroom'
+      - 'room'
+      - 'home'
     no_plan_where:
       - "don't"
+      - "haven't"
   generated: False
   add_to_score: 1
 
@@ -70,19 +93,74 @@ plan_where:
       - "pistol"
       - "pills"
       - "drugs"
+      - "overdosing"
+      - "overdose"
       - "shoot"
+      - "shooting"
       - "hang"
+      - "hanging"
       - "rope"
       - "jump"
+      - "jumping"
+      - "hitting"
+      - "falling"
       - "fall"
       - "building"
       - "drown"
+      - 'drowning'
+      - 'slit'
+      - 'slitting'
+      - 'cut'
+      - 'cutting'
+      - 'car'
+      - 'poison'
+      - 'poisoning'
+      - 'bridge'
     no_plan_how:
       - "don't"
+      - "haven't"
   generated: False
   add_to_score: 1
 
 plan_how:
+  message: "Do you have what you would need right now to commit suicide?"
+  next_prompt:
+    have_means:
+      - 'yes'
+      - 'probably'
+      - 'do'
+    dont_have_means:
+      - 'no'
+      - "don't"
+      - 'not'
+  generated: False
+  add_to_score: 1
+
+have_means:
+  message: "On a scale of 1 to 10, 1 being the worst and 10 being the best, how bad would you say you're feeling right now?"
+  next_prompt:
+    scale:
+      - '1'
+      - '2'
+      - '3'
+      - '4'
+      - '5'
+      - '6'
+      - '7'
+      - '8'
+      - '9'
+      - '10'
+  generated: False
+  add_to_score: 1
+
+scale:
+  message: "Ok. Thank you for giving us this important information. We'll have a volunteer with you in a few minutes."
+  next_prompt:
+    0: ''
+  generated: False
+  add_to_score: 1
+      
+dont_have_means:
   message: "Ok. Thank you for giving us this important information. We'll have a volunteer with you in a few minutes."
   next_prompt:
     0: ''
@@ -113,8 +191,13 @@ no_plan_where:
       - "fall"
       - "building"
       - "drown"
+      - "cut"
+      - "bleed"
+      - "suffocate"
+      - "choke"
     no_plan_how:
       - "don't"
+      - "haven't"
   generated: False
   add_to_score: 0
 
