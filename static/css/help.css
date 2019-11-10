@@ -7,35 +7,72 @@
 .borderbox
 {
     font-family: "quantify";
-    color: #8f8f8f;
+    color: #d3d3d3;
 }
 
 .generaltext 
 {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color: #8f8f8f;
-    background-color:  #d3d3d3;
+    background-color: #d3d3d3;
     
-}
-
-.usertext
-{
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    color: #87ceeb;
-    text-align: center;
-    border-radius: 30px;
-    background-color: #2952a3;
-
 }
 
 .bottext
 {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    color: #2952a3;
-    text-align: center;
-    border-radius: 30px;
-    background-color:  #3fa9d3;
+    color: #000000;
+    border: 2px;
+    border-style: solid;
+    border-color: #ffffff;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 10%;
+    padding-left: 10%;
+    text-align: right;
+    -webkit-animation: fadein 2s;
+    animation: fadein 2s;
+    border-radius: 15px;
+    background-color:  #d3d3d3;
 
+}
+
+
+.usertext
+{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: #000000;
+    border: 2px;
+    border-style: solid;
+    border-color: #87ceeb;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10%;
+    padding-right: 10%;
+    text-align: left;
+    -webkit-animation: fadein 2s;
+    animation: fadein 2s;
+    border-radius: 15px;
+    background-color: #40e0d0 ;
+
+}
+
+
+.pending
+{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: #000000;
+    text-align: center;
+    -webkit-animation: fadein 2s;
+    animation: fadein 2s;
+    border-radius: 15px;
+    background-color: #95b4b1;
+
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
 }
 
 textarea
@@ -50,8 +87,9 @@ textarea
     bottom:0;
     left: 0;
     width: 100%;
-    height:60px;
+    height:80px;
 }
+
 
 
 
