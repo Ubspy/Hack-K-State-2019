@@ -12,11 +12,7 @@ class Prompt:
 
     def next_name(self, contains): # a function that takes a word and returns the NAME of the next prompt based on that
         for promptname, keywords in self.next_prompt.items():
-            print(promptname + ":")
-            print(repr(keywords[0]))
-            print(repr(contains))
             if contains in keywords:
-                print(promptname)
                 return promptname
 
 def load(filename):

@@ -21,19 +21,30 @@ def getResponse(user_message):
     words = user_in.split(" ")
     choice = None
     p = prompt.get_obj(session['prompt']) # the current prompt object
-    print(p.message)
-    for word in words:
-        choice = p.next_name(word)
-        print("Choice: " + (choice or 'None'))
-        if (choice is not None):
-            break
-    if (choice is None):
-        return("Sorry, I didn't understand that. " + p.message)
+
+
+
+    if p.generated:
+        choice = p.next_name(' ') # A space is default if there's no branching to be done
+        session['prompt'] = choice # Saves this value to use in the next iteration
+        p = prompt.get_obj(choice) # Gets next prompt message
+
+        # Set up NLP to generate response
+        generator = nlp.NLPResponse()
+
+        # Return dictionary of generated response, then the pre-done response
+        return {'generatedMessage': generator.give_reply(user_message), 'nextMessage': p.message}
     else:
-        session['prompt'] = choice # p = next value based on user input
-        p = prompt.get_obj(choice)
-        print(p.message)
-        return(p.message)
+        for word in words:
+            choice = p.next_name(word)
+            if (choice is not None):
+                break
+        if (choice is None):
+            return("Sorry, I didn't understand that. " + p.message)
+        else:
+            session['prompt'] = choice # p = next value based on user input
+            p = prompt.get_obj(choice)
+            return(p.message)
 
 if __name__ == "__main__":
     app.run()

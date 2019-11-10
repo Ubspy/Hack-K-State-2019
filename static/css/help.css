@@ -8,6 +8,7 @@
 {
     font-family: "quantify";
     color: #d3d3d3;
+    padding: 0.25rem;
 }
 
 .generaltext 
@@ -52,7 +53,6 @@
 
 .fadeIn
 {
-    -webkit-animation: fadein 2s;
     animation: fadein 2s;
 }
 

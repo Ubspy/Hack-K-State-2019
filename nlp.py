@@ -52,7 +52,7 @@ class NLPResponse:
         matched_vector = similarVectors[-2]
 
         if(matched_vector == 0):
-            chatbot_response=chatbot_response + "I am sorry! I don't understand you"
+            chatbot_response = chatbot_response + "I'm really sorry to hear that, that's terrible, you shouldn't have to suffer through that."
             return chatbot_response
         else:
             chatbot_response = chatbot_response + self.sentenceList[similarSentenceNumber]
